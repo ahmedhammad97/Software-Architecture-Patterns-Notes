@@ -16,7 +16,6 @@ The report is publicly available [here](https://www.oreilly.com/library/view/sof
 ## <a name="layered">Layered (Monolithic) Architecture</a>
 <img src="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/assets/sapr_0101.png" width="50%"/>
 
-#### Description:
 A group of horizontal layers, that are stacked over each other, each performing a certain role, resulting in a **separation of concerns** by design. It's a very good starting point for small businesses, that care much about the ease of deployment and testing.
 
 The number of layers may vary, but the most common are:
