@@ -46,13 +46,13 @@ The architecture comes in two topologies (fashions):
 
 Typically consists of:
 
-- **Event Queue**: store the events until the mediator consumes it. 
+- **Event queue**: store the events until the mediator consumes it. 
 
-- **Event Mediator (Orchestrator)**: receives *initial events*, then breaks them into *processing events* that can be passed accordingly each to the suitable processor. This requires that the mediator knows the corresponding procedure (steps) for every initial event. It does not perform any business logic though.
+- **Event mediator (orchestrator)**: receives *initial events*, then breaks them into *processing events* that can be passed accordingly each to the suitable processor. This requires that the mediator knows the corresponding procedure (steps) for every initial event. It does not perform any business logic though.
 
-- **Event Channels**: can either be a message queue, or a message topic, that passes the messages *asynchronously* to the event processors.
+- **Event channels**: can either be a message queue, or a message topic, that passes the messages *asynchronously* to the event processors.
 
-- **Event Processors**: a unit that contains and perform all the business logic. A processor should not rely on other processor.
+- **Event processors**: a unit that contains and perform all the business logic. A processor should not rely on other processor.
 
 ### Broker Topology
 
@@ -128,8 +128,26 @@ There are three famous types:
 	- Shared database that stores the common information needed by both components.
 	- Copying the desired functionality to both components (violating DRY rule).
 
-## <a name="spacebased">Space-based Architecture</a>
+## <a name="spacebased">Space-based (Cloud) Architecture</a>
+
+<img src="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/assets/sapr_0501.png" width="500px"/>
+
+An architecture that is specifically designed to address and solve scalability and concurrency issues *"architecturally"*, instead of trying to scale out bottleneck layers, which only moves the problem to a deeper layer (which is usually harder to scale).
+
+It is suitable for applications with *unpredictable* concurrent user volume.
+
+This high scalability is achieved by removing the central database constraint, and using replicated in-memory data grids instead. Some centralized data store can still be used to load and asynchronously persist data updates.
+
+It typically consists of:
+
+- **Processing unit**: contains all applications, and perform all the business logic.
+
+- **Virtual middleware**: the controller of the architecture, and usually consists of four main components:
+	- **Message grid**: manages input requests and session information.
+	- **Data grid**: manages data replication between processing units.
+	- **Processing grid**: manages distributed requests processing.
+	- **Deployment manager**: manages the dynamic startup and shutdown of the unit.
+
+Cloud architecture applications usually resides inside cloud hosted services *(PAAS)*, but it is not a must.
 
 ## <a name="comparison">Comparison</a>
-
-<img src="" width="500px"/>
