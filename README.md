@@ -16,7 +16,7 @@ The report is publicly available [here](https://www.oreilly.com/library/view/sof
 ## <a name="layered">Layered (Monolithic) Architecture</a>
 <img src="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/assets/sapr_0101.png" width="500px"/>
 
-A group of horizontal layers, that are stacked over each other, each performing a certain role, resulting in a **separation of concerns** by design. It's a very good starting point for small businesses, that care much about the ease of deployment and testing.
+A group of horizontal layers, that are stacked over each other, each performing a certain role, resulting in a **separation of concerns** by design. It's a very good starting point for small businesses, that care much about the ease of development and testing.
 
 The number of layers may vary, but the most common are:
 
@@ -72,7 +72,7 @@ The initial event goes directly into one of the event processors, which perform 
 
 Because of the distributed nature of this architecture, it typically faces some problems like:
 
-- Remote processes availability
+- Remote processes unavailability
 - Lack of responsiveness
 - Mediator or Broker failure
 - Lack of atomicity
@@ -115,7 +115,7 @@ There are three famous types:
 ### Common Problems
 
 - Transactions (Atomicity) is very hard
-- Remote service availability
+- Remote service unavailability
 - Remote access authentication
 - Remote access authorization
 - Lack of orchestration
