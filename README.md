@@ -1,5 +1,5 @@
 # Software Architecture Patterns Notes
-My reading notes following "Software Architecture Patterns" report by Mark Richards. The report compares few popular architecture patterns, discussing clearly each ones pros, cons, and usage.
+My reading notes following "Software Architecture Patterns" report by Mark Richards. The report compares few popular architecture patterns, discussing clearly each one's pros, cons, and usage.
 
 The report is publicly available [here](https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/).
 
