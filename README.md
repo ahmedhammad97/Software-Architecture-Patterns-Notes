@@ -151,3 +151,5 @@ It typically consists of:
 Cloud architecture applications usually resides inside cloud hosted services *(PAAS)*, but it is not a must.
 
 ## <a name="comparison">Comparison</a>
+
+<img src="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/assets/sapr_aa01.png" width="500px"/>
