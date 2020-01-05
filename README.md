@@ -1,5 +1,5 @@
 # Software Architecture Patterns Notes
-My reading notes following "Software Architecture Patterns" report by Mark Richards. The report compares few popular architecture patterns, discussing clearly each one's pros, cons, and usage.
+My reading notes following "Software Architecture Patterns" report by Mark Richards. The report compares few popular architecture patterns, discussing clearly each ones pros, cons, and usage.
 
 The report is publicly available [here](https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/).
 
@@ -19,10 +19,14 @@ The report is publicly available [here](https://www.oreilly.com/library/view/sof
 A group of horizontal layers, that are stacked over each other, each performing a certain role, resulting in a **separation of concerns** by design. It's a very good starting point for small businesses, that care much about the ease of deployment and testing.
 
 The number of layers may vary, but the most common are:
-- Presentation layer: responsible for handling all user interface and browser communication.
-- Business layer: responsible for executing business rules.
-- Persistence layer: responsible for converting business information into database queries.
-- Database layer: responsible for storing, maintaining, and retrieval of the information.
+
+- **Presentation layer**: responsible for handling all user interface and browser communication.
+
+- **Business layer**: responsible for executing business rules.
+
+- **Persistence layer**: responsible for converting business information into database queries.
+
+- **Database layer**: responsible for storing, maintaining, and retrieval of the information.
 
 By default, all the layers are *closed*, which means that the layer functionality can only be accessed by the layer above it. This results in **layers isolation**, which means that a change in a layer, should not affect any other layer.
 
@@ -36,29 +40,35 @@ A distributed, asynchronous, highly scalable architecture. Consists mainly of hi
 
 The architecture comes in two topologies (fashions):
 
-#### Mediator Topology
+### Mediator Topology
 
 <img src="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/assets/sapr_0201.png" width="500px"/>
 
 Typically consists of:
-- Event Queue: store the events until the mediator consumes it. 
-- Event Mediator (Orchestrator): receives *initial events*, then breaks them into *processing events* that can be passed accordingly each to the suitable processor. This requires that the mediator knows the corresponding procedure (steps) for every initial event. It does not perform any business logic though.
-- Event Channels: can either be a message queue, or a message topic, that passes the messages *asynchronously* to the event processors.
-- Event Processors: a unit that contains and perform all the business logic. A processor should not rely on other processor.
 
-#### Broker Topology
+- **Event Queue**: store the events until the mediator consumes it. 
+
+- **Event Mediator (Orchestrator)**: receives *initial events*, then breaks them into *processing events* that can be passed accordingly each to the suitable processor. This requires that the mediator knows the corresponding procedure (steps) for every initial event. It does not perform any business logic though.
+
+- **Event Channels**: can either be a message queue, or a message topic, that passes the messages *asynchronously* to the event processors.
+
+- **Event Processors**: a unit that contains and perform all the business logic. A processor should not rely on other processor.
+
+### Broker Topology
 
 <img src="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/assets/sapr_0203.png" width="500px"/>
 
 It differs from the Mediator Topology in not having an orchestrator. It is useful when the event processing logic is fairly simple, and when there is not need for a central orchestration unit.
 
 Typically consists of:
-- Broker Component: contains all the event channels needed for passing events.
-- Event Processors: same as the ones in the previous topology.
+
+- **Broker Component**: contains all the event channels needed for passing events.
+
+- **Event Processors**: same as the ones in the previous topology.
 
 The initial event goes directly into one of the event processors, which perform a certain business logic, and then publishes a new event to the broker -that may or may not be consumed by another processor- Making space for extensions, and future features.
 
-#### Common Problems
+### Common Problems
 
 Because of the distributed nature of this architecture, it typically faces some problems like:
 
@@ -78,8 +88,9 @@ An architecture that is mainly used for it's extensibility, feature separation, 
 
 Consists of:
 
-- Core system: which contains the main minimal functionality of the application. It must have some registry list of all the existing plug-ins.
-- Plug-in modules: stand-alone, independent components that performs a certain task.
+- **Core system**: which contains the main minimal functionality of the application. It must have some registry list of all the existing plug-ins.
+
+- **Plug-in modules**: stand-alone, independent components that performs a certain task.
 
 The communication between the plug-ins should be minimal, however some plug-ins can require the existence of other plug-ins, creating some **dependency concerns**.
 
@@ -87,6 +98,38 @@ The core component can communicate with the plug-ins through OSGI, message passi
 
 ## <a name="microservices">Microservices Architecture</a>
 
+<img src="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/assets/sapr_0401.png" width="500px"/>
+
+An architecture that focuses on the ease of real time deployment, and therefore, scalability. It consists of separately distributed deployed units, called *service components* that each has a single purpose, and are transparent to the user, who uses them through an interface layer. Those components can vary in size, from a single module, to a whole sub-system.
+
+The microservices architecture usually evolves to solve problems in other architectures, rather than being the initial architecture.
+
+There are three famous types:
+
+- **API REST-based**: service components are fine-grained, typically a module or two, and accessed through REST interface that is usually implemented through separately deployed web API layer.
+
+- **APP REST-based**: service components are course-grained, contains more business logic, and are accessed through a web-based application screen. 
+
+- **Centralized messaging**: a lot similar to the APP REST-based, except that instead of the REST protocol, it uses a lightweight centralized message broker. This allows more advanced queuing mechanisms, asynchronous messaging, monitoring, error handling, and better load balancing and scalability. Yet, creating a single point of failure, that can be avoided by clustering or / and federation.
+
+### Common Problems
+
+- Transactions (Atomicity) is very hard
+- Remote service availability
+- Remote access authentication
+- Remote access authorization
+- Lack of orchestration
+
+### Tips
+
+1. If you found yourself in a need for an orchestrator, chances are that the service components are too fine grained.
+
+2. Inter-service communication between components can be avoided through:
+	- Shared database that stores the common information needed by both components.
+	- Copying the desired functionality to both components (violating DRY rule).
+
 ## <a name="spacebased">Space-based Architecture</a>
 
 ## <a name="comparison">Comparison</a>
+
+<img src="" width="500px"/>
