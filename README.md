@@ -70,7 +70,20 @@ Because of the distributed nature of this architecture, it typically faces some 
 
 Some of these problems can by overcame by replication or federation, but others like atomicity problems may give a good indication that it is not the suitable architecture pattern.
 
-## <a name="microkernel">Microkernel Architecture</a>
+## <a name="microkernel">Microkernel (Plug-in) Architecture</a>
+
+<img src="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/assets/sapr_0301.png" width="500px"/>
+
+An architecture that is mainly used for it's extensibility, feature separation, and isolation. It is the best option for product-based applications, operating systems, and any evolutionary design.
+
+Consists of:
+
+- Core system: which contains the main minimal functionality of the application. It must have some registry list of all the existing plug-ins.
+- Plug-in modules: stand-alone, independent components that performs a certain task.
+
+The communication between the plug-ins should be minimal, however some plug-ins can require the existence of other plug-ins, creating some **dependency concerns**.
+
+The core component can communicate with the plug-ins through OSGI, message passing, web services, or even point to point binding. In all cases, a well defined contract is required.
 
 ## <a name="microservices">Microservices Architecture</a>
 
