@@ -12,6 +12,7 @@ The report is publicly available [here](https://www.oreilly.com/library/view/sof
 5. [Space-based Architecture](#spacebased)
 
 [Comparison](#comparison)
+
 [More Reading Notes](#more)
 
 ## <a name="layered">Layered (Monolithic) Architecture</a>
