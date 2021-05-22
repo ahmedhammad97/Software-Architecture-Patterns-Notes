@@ -12,6 +12,7 @@ The report is publicly available [here](https://www.oreilly.com/library/view/sof
 5. [Space-based Architecture](#spacebased)
 
 [Comparison](#comparison)
+[More Reading Notes](#more)
 
 ## <a name="layered">Layered (Monolithic) Architecture</a>
 <img src="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/assets/sapr_0101.png" width="500px"/>
@@ -153,3 +154,7 @@ Cloud architecture applications usually resides inside cloud hosted services *(P
 ## <a name="comparison">Comparison</a>
 
 <img src="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/assets/sapr_aa01.png" width="500px"/>
+
+## <a name="more">More Reading Notes</a>
+- [Designing Data Intensive Applications](https://github.com/ahmedhammad97/Designing-Data-Intensive-Applications-Notes)
+- [Clean Code](https://github.com/ahmedhammad97/Clean-Code-Do-And-Dont)
