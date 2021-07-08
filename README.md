@@ -159,3 +159,4 @@ Cloud architecture applications usually resides inside cloud hosted services *(P
 ## <a name="more">More Reading Notes</a>
 - [Designing Data Intensive Applications](https://github.com/ahmedhammad97/Designing-Data-Intensive-Applications-Notes)
 - [Clean Code](https://github.com/ahmedhammad97/Clean-Code-Do-And-Dont)
+- [Principles of Package Desgin](https://github.com/ahmedhammad97/Principles-of-Package-Design-Reading-Notes)
